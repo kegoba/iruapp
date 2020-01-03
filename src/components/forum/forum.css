@@ -1,0 +1,16 @@
+.post-container{
+    font-size: 1.3em;
+}
+
+
+.post-dispay{
+   padding: 10px; 
+}
+.items{
+    font-size: small;
+    padding-inline: 50px;
+}
+
+Link{
+    position: relative;
+}
