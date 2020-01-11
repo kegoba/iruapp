@@ -44,7 +44,7 @@ onchangePassword(event){
             "password" : this.state.password
         }
         
-        axios.post("http://localhost:8000/login/", postdata)
+        axios.post("http://iru.herokuapp.com/login/", postdata)
             .then((resp) => { 
               console.log(resp)
             if (resp.status === 200){

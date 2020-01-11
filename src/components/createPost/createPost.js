@@ -53,7 +53,7 @@ class CreatePost extends Component{
              
         }
         console.log(postdata)
-        Axios.post("http://localhost:8000/create_post/", postdata)
+        Axios.post("http://iru.herokuapp.com/create_post/", postdata)
         .then((resp)=>{
             console.log("post saves successful", resp.data)
             this.props.history.push("/forum")

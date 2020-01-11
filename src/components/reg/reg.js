@@ -57,7 +57,7 @@ class Reg extends Component{
 
         }
         console.log(postdata)
-        Axios.post("http://localhost:8000/signup/", postdata)
+        Axios.post("http://iru.herokuapp.com/signup/", postdata)
             .then((resp) => {
                 console.log("post saves successful", resp.data)
                 this.props.history.push("/login")

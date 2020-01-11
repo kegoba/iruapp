@@ -32,8 +32,8 @@ class ViewPost extends Component {
     componentDidMount() {
         const user = JSON.parse(localStorage.getItem("user"))
         Axios.all([
-            Axios.get("http://localhost:8000/viewpost/" + this.props.match.params.id + "/"),
-            Axios.get("http://localhost:8000/comment/" + this.props.match.params.id +  "/")
+            Axios.get("http://iru.herokuapp.com/viewpost/" + this.props.match.params.id + "/"),
+            Axios.get("http://iru.herokuapp.com/comment/" + this.props.match.params.id +  "/")
            
         ])
             .then(Axios.spread((viewpost, viewcomment) => {
@@ -61,7 +61,7 @@ class ViewPost extends Component {
 
     
     handleDelete() {
-        const url = "http://localhost:8000/deletepost/" + this.props.match.params.id + "/"
+        const url = "http://iru.herokuapp.com/deletepost/" + this.props.match.params.id + "/"
         Axios.delete(url)
             .then((resp) => {
                 this.props.history.push("/forum")
