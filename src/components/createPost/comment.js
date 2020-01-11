@@ -34,7 +34,7 @@ class Comment extends Component {
         this.setState({
             user: user
         })
-        Axios.get("http://iru.herokuapp.com/viewpost/" + this.props.match.params.id + "/")
+        Axios.get("http://localhost:8000/quotepost/" + this.props.match.params.id + "/")
             .then((resp) => {
                  console.log(resp.data)
                 this.setState({
@@ -55,10 +55,11 @@ class Comment extends Component {
         const postdata = {
             comment: this.state.post_body,
             comment_by: this.state.user.first_name
-
+  //http://localhost:8000/comment/61/
+  //"http://iru.herokuapp.com/comment/"
         }
         console.log(postdata)
-        Axios.post("http://iru.herokuapp.com/comment/"+ this.props.match.params.id + "/", postdata)
+        Axios.post("http://localhost:8000/comment/"+ this.props.match.params.id + "/", postdata)
             .then((resp) => {
                 console.log("post saves successful", resp.data)
                 this.props.history.push("/forum")

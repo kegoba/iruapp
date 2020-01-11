@@ -2,9 +2,9 @@ import React from "react"
 const History =()=>{
     return(
         
-        <div className="container">
+        <div className="container card bg-light">
             <div className="row">
-                <div className="col">
+                <div className="col card-body">
             <h4> THE ORIGIN AND MEANING OF IRU-EGBEDE </h4>
             <p> The name IRU much like the people, describes it , originated from Benin kingdom.
                 Our forebearers were believed to be direct descendant of the prince Egbede. History 

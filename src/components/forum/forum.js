@@ -62,7 +62,7 @@ class Forum extends Component{
     }
 
     componentDidMount(){
-        Axios.get("http://iru.herokuapp.com/forum/" )
+        Axios.get("http://localhost:8000/forum/" )
         .then((resp)=>{
             //console.log(resp)
             this.setState ({

@@ -27,11 +27,14 @@ class ViewPost extends Component {
             
         }
     }
+    //http://localhost:8000/comment
+    //"http://iru.herokuapp.com/viewpost/"
     componentDidMount() {
         const user = JSON.parse(localStorage.getItem("user"))
         Axios.all([
-            Axios.get("http://iru.herokuapp.com/viewpost/" + this.props.match.params.id + "/"),
-            Axios.get("http://iru.herokuapp.com/displaycomment/")
+            Axios.get("http://localhost:8000/viewpost/" + this.props.match.params.id + "/"),
+            Axios.get("http://localhost:8000/comment/" + this.props.match.params.id +  "/")
+           
         ])
             .then(Axios.spread((viewpost, viewcomment) => {
                 this.setState({
@@ -40,10 +43,11 @@ class ViewPost extends Component {
                     post_date: viewpost.data.post_date,
                     tittle: viewpost.data.tittle,
                     post_body: viewpost.data.post_body,
-                    comment: viewcomment.data.results,
+                    comment: viewcomment.data,
                     user: user
                 })
                 if (user) {
+                    console.log(this.state.comment)
                     const post_by = viewpost.data.post_by
                     const first_name = user.first_name
                     if (first_name.toUpperCase() === post_by.toUpperCase()) {
@@ -57,7 +61,7 @@ class ViewPost extends Component {
 
     
     handleDelete() {
-        const url = "http://iru.herokuapp.com/deletepost/" + this.props.match.params.id + "/"
+        const url = "http://localhost:8000/deletepost/" + this.props.match.params.id + "/"
         Axios.delete(url)
             .then((resp) => {
                 this.props.history.push("/forum")
@@ -116,7 +120,13 @@ class ViewPost extends Component {
                 {this.state.comment.map((data, key) => 
                 <div  key={key}>
                     <i className="text-justify" > {data.comment}</i>
-                    <i className="text-justify" > {data.comment_by}</i>
+                    <div className="comment">
+                    <i > comment by {data.comment_by}</i>
+                    <i> date {data.post_date}</i>
+                    <i onClick={this.handleLike}> Like ({this.state.number_of_like})  </i>
+                    <i onClick={this.handleShare}> Share({this.state.number_of_share})  </i>
+                    
+                   </div>
                  </div> 
 
                 )}
