@@ -3,6 +3,7 @@ import {  Link } from 'react-router-dom'
 import AliceCarousel from "react-alice-carousel" 
 import  bed1 from "../image/bed1.jpg"
 import Gallary from "../gallary/gallary"
+import Gallary2 from "../gallary/gallary2"
 
 
 
@@ -71,12 +72,9 @@ class Home extends Component {
                                 <i>
                                     IGWE FESTIVAL :This festival is celebrated every 
                                     week of january to mark the beginning of new year for
-                                    the community. 
+                                    the community.  <a href=""> Read More....</a>
                                 </i>
-                                <i>
-                                    NEW YAM FESTIVAL :This festival is use to mark first fruit for the farmers. All farmers wait
-                                    for this festival before they will start havesting for sales
-                                </i>
+                                
                             </p>
                         </div>
                 
@@ -92,6 +90,18 @@ class Home extends Component {
                <div>
                    
                </div>
+                <div className="container gallary">
+                    <div className="row">
+
+                        <div className="col">
+                            <h3> The name of Odionwere from the inception till date</h3>
+                            <Gallary2 />
+                        </div>
+
+
+                    </div>
+                </div>
+
            </div>
 
 

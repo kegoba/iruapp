@@ -3,6 +3,7 @@ import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
 import History from "./history"
 import CreatePost from "../createPost/createPost"
 import Comment from "../createPost/comment"
+import QUOTE from "../createPost/quote"
 import Home from "../home/Home"
 import Forum from "../forum/forum"
 import Login from "../login/login"
@@ -10,6 +11,7 @@ import Reg from "../reg/reg"
 import Private from "../Auth/private"
 import ViewPost from "../viewpost/viewpost"
 import logo from "../image/logo.jpg"
+
 
 
 class Menu extends Component {
@@ -34,6 +36,7 @@ class Menu extends Component {
     
     handleLogout(e) {
         localStorage.removeItem("user")
+        this.props.history.push("/login")
     }
     render() {
         return (
@@ -105,7 +108,7 @@ class Menu extends Component {
                     <Route path="/forum"  component={Forum}/>
                     <Private path="/createpost" component={CreatePost} /> 
                     <Private path="/comment/:id" component={Comment}  /> 
-                    <Private path="/comment/" component={Comment} /> 
+                    <Private path="/quotepost/:id" component={QUOTE} /> 
                     <Private path="/deletepost/:id" component={ViewPost} />   
                 </Switch>
 

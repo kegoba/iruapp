@@ -93,32 +93,32 @@ class ViewPost extends Component {
     }
     render() {
         return (
-            <div className=" container post-container">
+            <div className=" container post-container bg-light">
 
                    <h4>  {this.state.tittle}</h4>
                    <p>  {this.state.post_date}  </p>
                    <p>  <Link to="">  posted by: {this.state.post_by} </Link> </p>
-                <div className="comments items "  >
+                <div className="comments items" className="card bg-light"  >
                      <p>  {this.state.post_body} </p>
                         {this.state.author_check === true ? 
-                        (<div> 
+                        (<div className=""> 
                             <i onClick={this.handleLike}> Like ({this.state.number_of_like})  </i>
                             <i onClick={this.handleShare}> Share({this.state.number_of_share})  </i>
-                            <Link to={"/comment/" + this.state.id}>  qoute  </Link>
-                            <Link to={"/comment/"}>  comment </Link>
+                            <Link to={"/quotepost/" + this.state.id}>  qoute  </Link>
+                            <Link to={"/comment/" + this.state.id}>  comment </Link>
                             <i onClick={this.handleDelete}>  delete </i>
                         </div>)  :
-                         (<div>
+                        (<div className="">
                             <i onClick={this.handleLike}> Like ({this.state.number_of_like})  </i>
                             <i onClick={this.handleShare}> Share({this.state.number_of_share})  </i>
-                            <Link to={"/comment/" + this.state.id}>  qoute  </Link>
-                            <Link to={"/comment/"}>  comment </Link>                          
+                            <Link to={"/quotepost/" + this.state.id}>  qoute  </Link>
+                            <Link to={"/comment/" + this.state.id}>  comment </Link>                          
                         </div>)
                         }               
                     </div>
                 <div >
                 {this.state.comment.map((data, key) => 
-                <div  key={key}>
+                    <div key={key} className="container card bg-light">
                     <i className="text-justify" > {data.comment}</i>
                     <div className="comment">
                     <i > comment by {data.comment_by}</i>

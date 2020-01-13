@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import "./createPost.css"
 import Axios from "axios"
-import { Link,BrowserRouter} from 'react-router-dom'
-class Comment extends Component {
+import { Link, BrowserRouter } from 'react-router-dom'
+class QUOTE extends Component {
     constructor(props) {
         super(props)
         this.onchangePost_body = this.onchangePost_body.bind(this)
@@ -11,10 +11,10 @@ class Comment extends Component {
             tittle: "",
             post_body: "",
             first_name: "",
-            post :""
+            post: ""
         }
     }
-  
+
     onchangePost_body(event) {
         event.preventDefault();
         console.log(event.target.value)
@@ -29,7 +29,7 @@ class Comment extends Component {
         })
         Axios.get("http://iru.herokuapp.com/quotepost/" + this.props.match.params.id + "/")
             .then((resp) => {
-                 console.log(resp.data)
+                console.log(resp.data)
                 this.setState({
                     post_body: resp.data.post_body,
                 })
@@ -41,8 +41,8 @@ class Comment extends Component {
         const postdata = {
             comment: this.state.post_body,
             comment_by: this.state.user.first_name
-  //http://localhost:8000/comment/61/
-  //"http://iru.herokuapp.com/comment/"
+            //http://localhost:8000/comment/61/
+            //"http://iru.herokuapp.com/comment/"
         }
         console.log(postdata)
         Axios.post("http://iru.herokuapp.com/comment/" + this.props.match.params.id + "/", postdata)
@@ -61,7 +61,7 @@ class Comment extends Component {
             <form className="text-center" >
                 <div className="container">
                     <div className="row">
-                
+
                         <div className="col">
                             <label className="text-center"> Comment </label>
                         </div>
@@ -70,9 +70,9 @@ class Comment extends Component {
                         <div className="row">
                             <div className="col">
                                 <textarea type="textarea" className="text-center"
-                                 
-                                 onChange={this.onchangePost_body}
-                                   > </textarea>
+                                    value={this.state.post_body}
+                                    onChange={this.onchangePost_body}
+                                > </textarea>
                             </div>
                         </div>
                     </div>
@@ -89,4 +89,4 @@ class Comment extends Component {
         )
     }
 }
-export default Comment;
+export default QUOTE;
